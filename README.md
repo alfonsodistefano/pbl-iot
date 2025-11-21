@@ -15,3 +15,43 @@
   // Result of the if condition
 // Print the values to the OLED monitor And the Web page
   // Lab8 Html printing and Printing to OLED
+
+
+
+
+
+
+#define LED_GREEN 27
+#define LED_RED 25
+#define BUTTON_PIN 14 // <--- Added button pin
+
+float TEPM_MAX = 20;
+float HUM_MAX = 20;
+float PRES_MAX = 20;
+
+void setColor(int red, int green){
+analogWrite(LED_RED, red);
+analogWrite(LED_GREEN, green);
+}
+
+void setup(){
+pinMode(LED_GREEN, OUTPUT);
+pinMode(LED_RED, OUTPUT);
+pinMode(BUTTON_PIN, INPUT_PULLUP); // <--- Use pull-up for button
+Serial.begin(115200);
+
+setColor(0, 0);
+}
+
+void loop(){
+int buttonState = digitalRead(BUTTON_PIN);
+
+if (buttonState == LOW) {
+Serial.println("Button Pressed!");
+setColor(255, 0); // Red
+} else {
+setColor(0, 255); // Green
+}
+
+delay(50);
+}
