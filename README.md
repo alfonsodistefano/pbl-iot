@@ -23,7 +23,7 @@
 
 #define LED_GREEN 27
 #define LED_RED 25
-#define BUTTON_PIN 14 // <--- Added button pin
+#define BUTTON_PIN 14 // button pin
 
 float TEPM_MAX = 20;
 float HUM_MAX = 20;
@@ -37,7 +37,7 @@ analogWrite(LED_GREEN, green);
 void setup(){
 pinMode(LED_GREEN, OUTPUT);
 pinMode(LED_RED, OUTPUT);
-pinMode(BUTTON_PIN, INPUT_PULLUP); // <--- Use pull-up for button
+pinMode(BUTTON_PIN, INPUT_PULLUP); // pullup
 Serial.begin(115200);
 
 setColor(0, 0);
